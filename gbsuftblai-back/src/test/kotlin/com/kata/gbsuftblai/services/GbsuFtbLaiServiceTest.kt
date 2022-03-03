@@ -17,7 +17,7 @@ internal class GbsuFtbLaiServiceTest {
     inner class ContainsThreeOrDivisibleByThreeTest {
 
         @ParameterizedTest(name = "{index} ==> Number [{0}] should be converted to [Gbsu] because it doesn't contains 3 or 5 and is divisible by 3")
-        @ValueSource(ints = [ 6, 9, 12, 18 ])
+        @ValueSource(ints = [6, 9, 12, 18])
         @DisplayName("Numbers without 3 and divisibles by 3 should be converted to [Gbsu]")
         fun should_result_be_equals_to_Gbsu_When_number_to_convert_doesnot_contain_3_and_is_divisible_by_3(inputNumber: Int) {
             // Given
@@ -63,7 +63,7 @@ internal class GbsuFtbLaiServiceTest {
     inner class ContainsFiveOrDivisibleByFiveTest {
 
         @ParameterizedTest(name = "{index} ==> Number [{0}] should be converted to [Ftb] because it doesn't contains 3 or 5 and is divisible by 5")
-        @ValueSource(ints = [ 10, 20, 40, 80 ])
+        @ValueSource(ints = [10, 20, 40, 80])
         @DisplayName("Numbers without 5 and divisibles by 5 should be converted to [Ftb]")
         fun should_result_be_equals_to_Gbsu_When_number_to_convert_doesnot_contain_5_and_is_divisible_by_5(inputNumber: Int) {
             // Given
@@ -133,6 +133,25 @@ internal class GbsuFtbLaiServiceTest {
 
             // Then
             assertEquals("LaiLai", result)
+        }
+    }
+
+    @Nested
+    @DisplayName("Number divisible by 3 and contains 5")
+    inner class DivisibleByThreeAndContainsFiveTest {
+
+        @Test
+        @DisplayName("Number [51] should be converted to [GbsuFtb] because it starts with 5 and is divisible by 3")
+        fun should_result_be_equals_to_GbsuFtb_When_number_to_convert_is_51() {
+            // Given
+            //   - 51 is divisible by 3 but not by 5 and contains 5
+            val inputNumber = 51
+
+            // When
+            val result = gbsuFtbLaiService.convertNumber(inputNumber)
+
+            // Then
+            assertEquals("GbsuFtb", result)
         }
     }
 }
