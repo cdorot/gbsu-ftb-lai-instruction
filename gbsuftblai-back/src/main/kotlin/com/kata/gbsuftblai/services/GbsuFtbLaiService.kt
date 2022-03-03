@@ -2,11 +2,21 @@ package com.kata.gbsuftblai.services
 
 import org.springframework.stereotype.Component
 
+private const val GBSU = "Gbsu"
+
 @Component
 class GbsuFtbLaiService {
 
     fun convertNumber(inputNumber: Int): String {
-        return ""
+        var conversion = ""
+
+        if (isDivisibleBy(inputNumber, 3)) {
+            conversion += GBSU
+        }
+
+        return conversion
     }
+
+    private fun isDivisibleBy(dividend: Int, divisor: Int) = dividend % divisor == 0
 
 }
