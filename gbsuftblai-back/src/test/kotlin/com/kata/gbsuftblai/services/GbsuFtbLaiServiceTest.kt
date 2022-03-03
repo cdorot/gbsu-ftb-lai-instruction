@@ -21,7 +21,7 @@ internal class GbsuFtbLaiServiceTest {
         @DisplayName("Numbers without 3 and divisibles by 3 should be converted to [Gbsu]")
         fun should_result_be_equals_to_Gbsu_When_number_to_convert_doesnot_contain_3_and_is_divisible_by_3(inputNumber: Int) {
             // Given
-            //   - a number divisible by 3 + not divisible by 5 + does not contain 3 neither 5
+            //   - a number divisible by 3 + not divisible by 5 + does not contain 3 neither 5 neither 7
 
             // When
             val result = gbsuFtbLaiService.convertNumber(inputNumber)
@@ -63,11 +63,11 @@ internal class GbsuFtbLaiServiceTest {
     inner class ContainsFiveOrDivisibleByFiveTest {
 
         @ParameterizedTest(name = "{index} ==> Number [{0}] should be converted to [Ftb] because it doesn't contains 3 or 5 and is divisible by 5")
-        @ValueSource(ints = [ 10, 20, 40, 70 ])
+        @ValueSource(ints = [ 10, 20, 40, 80 ])
         @DisplayName("Numbers without 5 and divisibles by 5 should be converted to [Ftb]")
         fun should_result_be_equals_to_Gbsu_When_number_to_convert_doesnot_contain_5_and_is_divisible_by_5(inputNumber: Int) {
             // Given
-            //   - a number divisible by 5 + not divisible by 3 + does not contain 3 neither 5
+            //   - a number divisible by 5 + not divisible by 3 + does not contain 3 neither 5 neither 7
 
             // When
             val result = gbsuFtbLaiService.convertNumber(inputNumber)
@@ -101,6 +101,38 @@ internal class GbsuFtbLaiServiceTest {
 
             // Then
             assertEquals("FtbFtbFtb", result)
+        }
+    }
+
+    @Nested
+    @DisplayName("Number contains 7")
+    inner class ContainsSevenTest {
+
+        @Test
+        @DisplayName("Number [7] should be converted to [Lai] because it contains exactly one 7")
+        fun should_result_be_equals_to_Lai_When_number_to_convert_is_7() {
+            // Given
+            val inputNumber = 7
+
+            // When
+            val result = gbsuFtbLaiService.convertNumber(inputNumber)
+
+            // Then
+            assertEquals("Lai", result)
+        }
+
+        @Test
+        @DisplayName("Number [77] should be converted to [LaiLai] because it contains exactly two 7")
+        fun should_result_be_equals_to_LaiLai_When_number_to_convert_is_77() {
+            // Given
+            //   - 77 contains exactly two 7
+            val inputNumber = 77
+
+            // When
+            val result = gbsuFtbLaiService.convertNumber(inputNumber)
+
+            // Then
+            assertEquals("LaiLai", result)
         }
     }
 }
