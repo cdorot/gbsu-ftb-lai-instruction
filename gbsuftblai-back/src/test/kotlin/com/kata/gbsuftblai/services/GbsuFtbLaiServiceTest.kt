@@ -173,4 +173,37 @@ internal class GbsuFtbLaiServiceTest {
             assertEquals("FtbGbsu", result)
         }
     }
+
+    @Nested
+    @DisplayName("Number divisible by 3 and contains 7")
+    inner class DivisibleByThreeAndContainsSevenTest {
+
+        @Test
+        @DisplayName("Number [27] should be converted to [GbsuLai] because it contains exactly one 7 and is divisible by 3")
+        fun should_result_be_equals_to_GbsuLai_When_number_to_convert_is_27() {
+            // Given
+            //   - 27 contains 7 and divisible by 3
+            val inputNumber = 27
+
+            // When
+            val result = gbsuFtbLaiService.convertNumber(inputNumber)
+
+            // Then
+            assertEquals("GbsuLai", result)
+        }
+
+        @Test
+        @DisplayName("Number [72] should be converted to [GbsuLai] because it contains exactly one 7 and is divisible by 3")
+        fun should_result_be_equals_to_GbsuLai_When_number_to_convert_is_72() {
+            // Given
+            //   - 27 contains 7 and divisible by 3
+            val inputNumber = 72
+
+            // When
+            val result = gbsuFtbLaiService.convertNumber(inputNumber)
+
+            // Then
+            assertEquals("GbsuLai", result)
+        }
+    }
 }
