@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component
 
 private const val FTB = "Ftb"
 private const val GBSU = "Gbsu"
+private const val LAI = "Lai"
 
 @Component
 class GbsuFtbLaiService {
@@ -23,6 +24,7 @@ class GbsuFtbLaiService {
             when (c) {
                 '3' -> conversion += GBSU
                 '5' -> conversion += FTB
+                '7' -> conversion += LAI
             }
         }
 
