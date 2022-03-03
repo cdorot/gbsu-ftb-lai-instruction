@@ -154,4 +154,23 @@ internal class GbsuFtbLaiServiceTest {
             assertEquals("GbsuFtb", result)
         }
     }
+
+    @Nested
+    @DisplayName("Number contains 3 and contains 5")
+    inner class ContainsThreeAndContainsFiveTest {
+
+        @Test
+        @DisplayName("Number [53] should be converted to [FtbGbsu] because it starts with 5 and it ends with 3")
+        fun should_result_be_equals_to_FtbGbsu_When_number_to_convert_is_53() {
+            // Given
+            //   - 53 contains 3 and contains 5
+            val inputNumber = 53
+
+            // When
+            val result = gbsuFtbLaiService.convertNumber(inputNumber)
+
+            // Then
+            assertEquals("FtbGbsu", result)
+        }
+    }
 }
