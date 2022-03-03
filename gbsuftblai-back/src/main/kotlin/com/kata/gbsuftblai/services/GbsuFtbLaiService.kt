@@ -28,7 +28,7 @@ class GbsuFtbLaiService {
             }
         }
 
-        return conversion
+        return conversion.ifEmpty { inputNumber.toString() }
     }
 
     private fun isDivisibleBy(dividend: Int, divisor: Int) = dividend % divisor == 0
