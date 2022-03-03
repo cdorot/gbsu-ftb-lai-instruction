@@ -206,4 +206,23 @@ internal class GbsuFtbLaiServiceTest {
             assertEquals("GbsuLai", result)
         }
     }
+
+    @Nested
+    @DisplayName("Number divisible by 3 and divisible by 5")
+    inner class DivisibleByThreeAndDivisibleByFiveTest {
+
+        @Test
+        @DisplayName("Number [15] should be converted to [GbsuFtbFtb] because it is divisible by 3 and divisible by 5")
+        fun should_result_be_equals_to_GbsuFtbFtb_When_number_to_convert_is_15() {
+            // Given
+            //   - 15 divisible by 3 and divisible by 5
+            val inputNumber = 15
+
+            // When
+            val result = gbsuFtbLaiService.convertNumber(inputNumber)
+
+            // Then
+            assertEquals("GbsuFtbFtb", result)
+        }
+    }
 }
