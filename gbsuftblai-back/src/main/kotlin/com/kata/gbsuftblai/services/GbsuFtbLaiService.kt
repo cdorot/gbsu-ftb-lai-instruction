@@ -14,6 +14,12 @@ class GbsuFtbLaiService {
             conversion += GBSU
         }
 
+        for (c in inputNumber.toString()) {
+            when (c) {
+                '3' -> conversion += GBSU
+            }
+        }
+
         return conversion
     }
 
