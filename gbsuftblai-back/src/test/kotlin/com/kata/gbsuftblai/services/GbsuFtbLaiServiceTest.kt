@@ -225,4 +225,23 @@ internal class GbsuFtbLaiServiceTest {
             assertEquals("GbsuFtbFtb", result)
         }
     }
+
+    @Nested
+    @DisplayName("Number does not match any rule")
+    inner class NoMatchTest {
+
+        @ParameterizedTest(name = "{index} ==> Number [{0}] should be converted to string because it doesn't match any rule")
+        @ValueSource(ints = [1, 2, 4, 8])
+        @DisplayName("Numbers that doesnt match any rule should be converted to string")
+        fun should_result_be_equals_to_Gbsu_When_number_to_convert_doesnot_contain_3_and_is_divisible_by_3(inputNumber: Int) {
+            // Given
+            //   - a number not divisible by 3 + not divisible by 5 + does not contain 3 neither 5 neither 7
+
+            // When
+            val result = gbsuFtbLaiService.convertNumber(inputNumber)
+
+            // Then
+            assertEquals(inputNumber.toString(), result)
+        }
+    }
 }
