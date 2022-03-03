@@ -121,5 +121,8 @@
       }
     }
   },
-  "defaultProject": "gbsuftblai-ui"
+  "defaultProject": "gbsuftblai-ui",
+  "cli": {
+    "analytics": false
+  }
 }
