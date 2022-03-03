@@ -2,6 +2,7 @@ package com.kata.gbsuftblai.services
 
 import org.springframework.stereotype.Component
 
+private const val FTB = "Ftb"
 private const val GBSU = "Gbsu"
 
 @Component
@@ -12,6 +13,10 @@ class GbsuFtbLaiService {
 
         if (isDivisibleBy(inputNumber, 3)) {
             conversion += GBSU
+        }
+
+        if (isDivisibleBy(inputNumber, 5)) {
+            conversion += FTB
         }
 
         for (c in inputNumber.toString()) {
